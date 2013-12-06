@@ -1,0 +1,17 @@
+module Kamarad {
+
+	interface Account {
+		long getNumber ();
+	  void setNumber (in long number);
+
+	  float getBalance ();
+	  void setBalance (in float balance);
+	};
+
+	interface ControlsAccount {
+		Account returnAccount(in long number);
+	  Account topUp(in long number, in float amount);
+	  Account transfer(in long numberOrig, in float amount, in long numberDest);
+	};
+
+};
