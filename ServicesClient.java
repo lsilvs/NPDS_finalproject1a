@@ -42,6 +42,8 @@ public class ServicesClient {
 			System.out.println("3 for Buy Extra Options");
 			System.out.println("4 for View Credit Balance");
 			System.out.println("9 for Exit");
+			System.out.println("===============================================");
+			System.out.println("");
 
 			// Iterate while user do not select exit option (9)
 			while	(input != 9) {
@@ -61,6 +63,18 @@ public class ServicesClient {
 	        	account = servicesRef.transfer(account.getNumber(), amount, mobileNumber);
 	        	break;
 	        case 3:  // Option for buy extra options
+	        	System.out.println("===============================================");
+	        	System.out.println("Which option do you want to buy?");
+						System.out.println("1 for Kamarad Talk Kamarad 100 for €2");
+						System.out.println("2 for Kamarad Talk Kamarad 500 for €8");
+						System.out.println("3 for Kamarad Talk Everyone 100 for €5");
+						System.out.println("4 for Kamarad Talk Everyone 500 for €20");
+						System.out.println("5 for Kamarad Internet 1GB for €10");
+						System.out.println("6 for Kamarad Text 300 for €1");
+						System.out.println("7 for Kamarad International 100 for €10");
+						System.out.println("===============================================");
+	        	int option = Integer.parseInt(console.readLine("Option:"));
+	        	account = servicesRef.buyExtraOprion(account.getNumber(), option);
 	        	break;
 	        case 4:  // Option for view credit
 	        	System.out.println("Total Credit: " + account.getBalance());
@@ -72,6 +86,7 @@ public class ServicesClient {
 	        	break;
 	    	}
 			}
+
 		// exit message
 		System.out.println("bye!");
 		}

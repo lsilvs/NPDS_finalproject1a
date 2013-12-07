@@ -74,6 +74,50 @@ public class ControlsAccountImpl extends Kamarad._ControlsAccountImplBase {
     return accountOrig; 
   }
 
+  public synchronized Kamarad.Account buyExtraOprion(int number, int option) {
+    this.load();
+    // Lookup the account in the account dictionary.
+    Kamarad.Account account = (Kamarad.Account) _accountsTable.get (number);
+
+    switch (option){
+      case 1: // Option for top up
+        account.setBalance(account.getBalance() - 2);
+        account.setKamaradTalkKamarad100(account.getKamaradTalkKamarad100() + 100);
+        break;
+      case 2: // Option for transfer credit
+        account.setBalance(account.getBalance() - 8);
+        account.setKamaradTalkKamarad500(account.getKamaradTalkKamarad500() + 500);
+        break;
+      case 3:  // Option for buy extra options
+        account.setBalance(account.getBalance() - 5);
+        account.setKamaradTalkEveryone100(account.getKamaradTalkEveryone100() + 100);
+        break;
+      case 4:  // Option for view credit
+        account.setBalance(account.getBalance() - 20);
+        account.setKamaradTalkEveryone500(account.getKamaradTalkEveryone500() + 500);
+        break;
+      case 5:  // Option for view credit
+        account.setBalance(account.getBalance() - 10);
+        account.setKamaradInternet1GB(account.getKamaradInternet1GB() + 1000);
+        break;
+      case 6:  // Option for view credit
+        account.setBalance(account.getBalance() - 1);
+        account.setKamardText300(account.getKamardText300() + 300);
+        break;
+      case 7:  // Option for view credit
+        account.setBalance(account.getBalance() - 10);
+        account.setKamaradInternational100(account.getKamaradInternational100() + 100);
+        break;
+      default: 
+        System.out.println("Invalid option!");
+        break;
+    }
+
+    // Return the account.
+    this.save();
+    return account;
+  }
+
   private void save() {
     try{
       FileOutputStream fos = new FileOutputStream("accounts.db");

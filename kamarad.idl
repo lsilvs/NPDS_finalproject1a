@@ -6,12 +6,34 @@ module Kamarad {
 
 	  float getBalance ();
 	  void setBalance (in float balance);
+
+	  long getKamaradTalkKamarad100 ();
+	  void setKamaradTalkKamarad100 (in long amount);
+
+	  long getKamaradTalkKamarad500 ();
+	  void setKamaradTalkKamarad500 (in long amount);
+
+	  long getKamaradTalkEveryone100 ();
+	  void setKamaradTalkEveryone100 (in long amount);
+
+	  long getKamaradTalkEveryone500 ();
+	  void setKamaradTalkEveryone500 (in long amount);
+
+	  long getKamaradInternet1GB ();
+	  void setKamaradInternet1GB (in long amount);
+
+	  long getKamardText300 ();
+	  void setKamardText300 (in long amount);
+
+	  long getKamaradInternational100 ();
+	  void setKamaradInternational100 (in long amount);
 	};
 
 	interface ControlsAccount {
 		Account returnAccount(in long number);
 	  Account topUp(in long number, in float amount);
 	  Account transfer(in long numberOrig, in float amount, in long numberDest);
+	  Account buyExtraOprion(in long number, in long option);
 	};
 
 };
